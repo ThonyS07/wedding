@@ -1,0 +1,51 @@
+@import "tailwindcss";
+@import "@fontsource/ephesis";
+@import "@fontsource-variable/cormorant-garamond";
+@import "@fontsource/lato";
+@custom-variant dark (&:where(.dark, .dark *));
+@theme {
+	--font-sans: "Lato", sans-serif;
+	--font-ephesis: "Ephesis", cursive;
+	--font-cormorant: "Cormorant Garamond", serif;
+
+	/*COLOURS*/
+	--color-grape: #3b2044;
+	--color-purple: #7f0c72;
+	--color-pink: #edcfdc;
+	--color-lile: #e5d0ec;
+	--color-white: #fbf6f7;
+	--color-black: #2d2d2d;
+
+	/*Breakpoints*/
+	--breakpoint-sm: 375px;
+	--breakpoint-md: 768px;
+	--breakpoint-lg: 1280px;
+	--breakpoint-xl: 1440px;
+
+	--radius-lg: 28px;
+	--radius-full: 999px;
+
+	/*Typography sizes*/
+
+	--text-3xs: 10px;
+	/*Typography line-height*/
+
+	--text-3xs--line-height: 12px;
+
+	/*Button typography*/
+
+	--text-btnXXL: 20px;
+
+	--text-btnXXL--line-height: 24px;
+
+	--font-weight-extrablack: 1000;
+	--font-weight-black: 900;
+	--font-weight-bold: 700;
+	--font-weight-semibold: 600;
+	--font-weight-medium: 500;
+	--font-weight-regular: 400;
+	--font-weight-light: 300;
+	--font-weight-extralight: 200;
+
+	--spacing-22: 22px;
+}
