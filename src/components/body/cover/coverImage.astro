@@ -1,0 +1,44 @@
+---
+import mobileCoverImage from "../../../assets/coverImageMobile.png";
+import tabletCoverImage from "../../../assets/coverImageTablet.png";
+import desktopCoverImage from "../../../assets/coverImageDesktop.png";
+import desktopLargeCoverImage from "../../../assets/coverImageDesktopLarge.png";
+
+const images = {
+	mobile: mobileCoverImage,
+	tablet: tabletCoverImage,
+	desktop: desktopCoverImage,
+	desktopLarge: desktopLargeCoverImage,
+};
+---
+
+<div class='absolute inset-0 w-full h-full'>
+	<div class='w-full h-full block md:hidden'>
+		<img
+			class='w-full h-full object-cover object-center'
+			src={images.mobile.src}
+			alt='mobile-cover-image'
+		/>
+	</div>
+	<div class='w-full h-full hidden md:block lg:hidden'>
+		<img
+			class='w-full h-full object-cover object-center'
+			src={images.tablet.src}
+			alt='tablet-cover-image'
+		/>
+	</div>
+	<div class='w-full h-full hidden lg:block xl:hidden'>
+		<img
+			class='w-full h-full object-cover object-center'
+			src={images.desktop.src}
+			alt='desktop-cover-image'
+		/>
+	</div>
+	<div class='w-full h-full hidden xl:block'>
+		<img
+			class='w-full h-full object-cover object-center'
+			src={images.desktopLarge.src}
+			alt='desktop-large-cover-image'
+		/>
+	</div>
+</div>
