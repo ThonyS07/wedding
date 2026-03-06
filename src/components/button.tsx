@@ -1,7 +1,7 @@
 import { createGetLiveCollection } from 'astro/content/runtime';
 import React from "react";
 
-type Color = "purple" | "white";
+type Color = "purple" | "white" | "transparent";
 type TextColor = "purple" | "white";
 
 export interface ButtonProps {
@@ -17,8 +17,8 @@ export const Button: React.FC<ButtonProps> = ({
 	action,
 	textColor,
 }) => {
-	
-	const className = `button bg-${color} px-8 h-12 rounded-lg border-2 border-purple text-${textColor} inline-flex items-center justify-center cursor-pointer font-lato text-[18px]`;
+
+	const className = color === "purple" && textColor === 'white'  ? `button bg-purple px-8 h-12 rounded-lg border-2 border-purple text-white inline-flex items-center justify-center cursor-pointer font-lato text-[18px]` : `button bg-transparent  px-8 h-12 rounded-lg border-2 border-purple text-purple inline-flex items-center justify-center cursor-pointer font-lato text-[18px]`;
 
 	if (typeof action === "string") {
 		return (

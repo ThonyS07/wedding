@@ -8,19 +8,18 @@ import { Button } from "../../button";
 <section class='relative h-[85vh] w-full'>
 	<CoverImage />
 
-	<div class='absolute inset-0 z-10 flex flex-col items-center justify-center '>
+	<div class='absolute inset-0 z-10 flex flex-col items-center justify-center'>
 		<div>
 			<Title />
 			<CoverDate />
 		</div>
-		<div class="mt-12">
-
+		<div class='mt-12'>
 			<Button
-			text='Confirma tu asistencia'
-			color='purple'
-			action=''
-			textColor='white'
-			client:load
+				text='Confirma tu asistencia'
+				color='purple'
+				action=''
+				textColor='white'
+				client:load
 			/>
 		</div>
 	</div>
