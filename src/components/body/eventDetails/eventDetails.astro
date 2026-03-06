@@ -1,4 +1,5 @@
 ---
+import { Button } from "../../button";
 import EventDetailsDate from "./eventDetailsDate.astro";
 import EventDetailsDescription from "./eventDetailsDescription.astro";
 import EventDetailsInvitation from "./eventDetailsInvitation.astro";
@@ -6,10 +7,19 @@ import EventDetailsStopwatch from "./eventDetailsStopwatch.astro";
 import EventDetailsTitle from "./eventDetailsTitle.astro";
 ---
 
-<div class="flex flex-col items-center justify-center">
-    <EventDetailsTitle />
-    <EventDetailsDescription />
-    <EventDetailsDate />
-    <EventDetailsStopwatch />
-    <EventDetailsInvitation />
+<div class='flex flex-col items-center justify-center'>
+	<EventDetailsTitle />
+	<EventDetailsInvitation />
+	<EventDetailsDate />
+	<EventDetailsDescription />
+	<div class='mt-12'>
+		<Button
+			text='Confirma tu asistencia'
+			color='purple'
+			action=''
+			textColor='white'
+			client:load
+		/>
+	</div>
+	<EventDetailsStopwatch />
 </div>
