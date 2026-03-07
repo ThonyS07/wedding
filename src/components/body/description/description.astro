@@ -1,0 +1,26 @@
+---
+import { Button } from "../../button";
+import DescriptionDate from "./descriptionDate.astro";
+import DescriptionText from "./descriptionText.astro";
+import DescriptionInvitation from "./descriptionInvitation.astro";
+import DescriptionStopwatch from "./descriptionStopwatch.astro";
+import DescriptionTitle from "./descriptionTitle.astro";
+---
+
+<section
+	class='flex flex-col items-center pb-20 pt-16 px-4 md:px-6 lg:px-20 xl:px-30 justify-center bg-[linear-gradient(to_bottom,#fbf6f7_0%,#fbf6f7_30%,rgba(237,207,220,0.5)_100%)]'>
+	<DescriptionTitle />
+	<DescriptionInvitation />
+	<DescriptionDate />
+	<DescriptionText />
+	<div class='mt-12 mb-14'>
+		<Button
+			text='Confirma tu asistencia'
+			color='purple'
+			action=''
+			textColor='white'
+			client:load
+		/>
+	</div>
+	<DescriptionStopwatch />
+</section>

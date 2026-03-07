@@ -1,0 +1,22 @@
+---
+import DescriptionDateDay from './descriptionDate/descriptionDateDay.astro';
+import DescriptionDateSideLabel from './descriptionDate/descriptionDateSideLabel.astro';
+import DescriptionDateYear from './descriptionDate/descriptionDateYear.astro';
+
+---
+
+<div
+	class='flex flex-col items-center justify-center w-full max-w-[323px] mx-auto'>
+	<div class='grid grid-cols-[1fr_auto_1fr] items-center w-full'>
+		<div class='flex justify-end'>
+			<DescriptionDateSideLabel align='left'>Septiembre</DescriptionDateSideLabel>
+		</div>
+		<DescriptionDateDay>19</DescriptionDateDay>
+		<div class='flex justify-start'>
+			<DescriptionDateSideLabel align='right'>04:00 PM</DescriptionDateSideLabel>
+		</div>
+	</div>
+	<div class='flex justify-center -mt-[21px]'>
+		<DescriptionDateYear>2026</DescriptionDateYear>
+	</div>
+</div>
