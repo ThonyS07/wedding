@@ -1,0 +1,15 @@
+---
+interface Props {
+	text: string;
+	align?: "left" | "right";
+}
+
+const { align = "left" } = Astro.props;
+---
+
+<div
+	class={`flex items-center gap-2 text-2xl font-cormorant  ${align === "right" ? "flex-row-reverse" : ""}`}>
+	<span class='w-[110px] h-px bg-purple'></span>
+	<span class='text'><slot /></span>
+</div>
+
