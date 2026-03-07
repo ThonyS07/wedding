@@ -1,12 +1,14 @@
 @import "tailwindcss";
 @import "@fontsource/ephesis";
 @import "@fontsource/cormorant-garamond";
+@import "@fontsource/playball";
 @import "@fontsource/lato";
 @custom-variant dark (&:where(.dark, .dark *));
 @theme {
 	--font-lato: "Lato", sans-serif;
 	--font-ephesis: "Ephesis", cursive;
 	--font-cormorant: "Cormorant Garamond", serif;
+	--font-playball: "Playball", cursive;
 
 	/*COLOURS*/
 	--color-grape: #3b2044;
