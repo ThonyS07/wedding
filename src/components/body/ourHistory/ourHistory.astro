@@ -1,0 +1,29 @@
+---
+import OurHistoryImage from "./ourHistoryImage.astro";
+import OurHistoryTitle from "./ourHistoryTitle.astro";
+import OurHistoryDescription from "./ourHistoryDescription.astro";
+import OurHistorySign from "./ourHistorySign.astro";
+import OurHistoryLogo from "./ourHistoryLogo.astro";
+---
+
+<section>
+	<div class='flex flex-col lg:hidden'>
+		<OurHistoryImage />
+		<OurHistoryTitle />
+		<OurHistoryDescription />
+		<OurHistorySign />
+		<OurHistoryLogo />
+	</div>
+	<div class='hidden lg:grid lg:grid-cols-2'>
+		<div
+			class='pl-20 pr-[95px] xl:pl-[120px] xl:pr-[98px]'>
+			<OurHistoryTitle />
+			<OurHistoryDescription />
+			<OurHistorySign />
+			<OurHistoryLogo />
+		</div>
+		<div>
+			<OurHistoryImage />
+		</div>
+	</div>
+</section>
