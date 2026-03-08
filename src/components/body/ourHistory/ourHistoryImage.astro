@@ -1,0 +1,44 @@
+---
+import mobileOurHistoryImage from "../../../assets/ourHistoryMobile.png";
+import tabletOurHistoryImage from "../../../assets/ourHistoryTablet.png";
+import desktopOurHistoryImage from "../../../assets/ourHistoryDesktop.png";
+import desktopLargeOurHistoryImage from "../../../assets/ourHistoryDesktopLarge.png";
+
+const images = {
+	mobile: mobileOurHistoryImage,
+	tablet: tabletOurHistoryImage,
+	desktop: desktopOurHistoryImage,
+	desktopLarge: desktopLargeOurHistoryImage,
+};
+---
+
+<div class=''>
+	<div class='w-full h-full block md:hidden'>
+		<img
+			class='w-full h-full object-cover object-center'
+			src={images.mobile.src}
+			alt='mobile-cover-image'
+		/>
+	</div>
+	<div class='w-full h-full hidden md:block lg:hidden'>
+		<img
+			class='w-full h-full object-cover object-center'
+			src={images.tablet.src}
+			alt='tablet-cover-image'
+		/>
+	</div>
+	<div class='w-full h-full hidden lg:block xl:hidden'>
+		<img
+			class='w-full h-full object-cover object-center'
+			src={images.desktop.src}
+			alt='desktop-cover-image'
+		/>
+	</div>
+	<div class='w-full h-full hidden xl:block'>
+		<img
+			class='w-full h-full object-cover object-center'
+			src={images.desktopLarge.src}
+			alt='desktop-large-cover-image'
+		/>
+	</div>
+</div>
