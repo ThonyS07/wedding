@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@astrojs/react": "^4.4.2",
+    "@fontsource/alex-brush": "^5.2.8",
     "@fontsource/cormorant-garamond": "^5.2.11",
     "@fontsource/ephesis": "^5.2.8",
     "@fontsource/lato": "^5.2.7",

@@ -2,6 +2,7 @@
 @import "@fontsource/ephesis";
 @import "@fontsource/cormorant-garamond";
 @import "@fontsource/playball";
+@import "@fontsource/alex-brush";
 @import "@fontsource/lato";
 @custom-variant dark (&:where(.dark, .dark *));
 @theme {
@@ -9,6 +10,7 @@
 	--font-ephesis: "Ephesis", cursive;
 	--font-cormorant: "Cormorant Garamond", serif;
 	--font-playball: "Playball", cursive;
+	--font-alex: "Alex Brush", cursive;
 
 	/*COLOURS*/
 	--color-grape: #3b2044;
