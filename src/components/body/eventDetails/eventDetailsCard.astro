@@ -1,0 +1,20 @@
+---
+import { Button } from '../../button';
+import EventCardImage from './eventCardImage.astro'
+
+type eventCardProps = {
+    cardImage: string;
+    cardTitle: string;
+    cardDescription: string;
+    cardAction: string;
+}
+
+const { cardImage, cardTitle, cardDescription, cardAction } = Astro.props as eventCardProps;
+---
+
+<div class="flex flex-col gap-4 items-center">
+    <EventCardImage cardImage={cardImage} cardTitle={cardTitle} />
+    <p class="text-[#555555] text-64 font-ephesis">{cardTitle}</p>
+    <p class="font-cormorant text-28 text-center">{cardDescription}</p>
+    <Button text='Ver detalles' color="white" textColor="purple" action={cardAction} client:load></Button>
+</div>

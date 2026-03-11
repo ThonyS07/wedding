@@ -1,0 +1,114 @@
+---
+import EventDetailsCard from "./eventDetailsCard.astro";
+import UbicacionImageMobile from "../../../assets/ubicacionImageMobile.png";
+import UbicacionImageTablet from "../../../assets/ubicacionImageTablet.png";
+import UbicacionImageDesktop from "../../../assets/ubicacionImageDesktop.png";
+import UbicacionImageDesktopLarge from "../../../assets/ubicacionImageDesktopLarge.png";
+import DressCodeImageMobile from "../../../assets/dressCodeImageMobile.png";
+import DressCodeImageTablet from "../../../assets/dressCodeImageTablet.png";
+import DressCodeImageDesktop from "../../../assets/dressCodeImageDesktop.png";
+import DressCodeImageDesktopLarge from "../../../assets/dressCodeImageDesktopLarge.png";
+import ItinerarioImageMobile from "../../../assets/itinerarioImageMobile.png";
+import ItinerarioImageTablet from "../../../assets/itinerarioImageTablet.png";
+import ItinerarioImageDesktop from "../../../assets/itinerarioImageDesktop.png";
+import ItinerarioImageDesktopLarge from "../../../assets/itinerarioImageDesktopLarge.png";
+const ubicacionImages = {
+	mobile: UbicacionImageMobile.src,
+	tablet: UbicacionImageTablet.src,
+	desktop: UbicacionImageDesktop.src,
+	desktopLarge: UbicacionImageDesktopLarge.src,
+};
+const dressCodeImages = {
+	mobile: DressCodeImageMobile.src,
+	tablet: DressCodeImageTablet.src,
+	desktop: DressCodeImageDesktop.src,
+	desktopLarge: DressCodeImageDesktopLarge.src,
+};
+const itinerarioImages = {
+	mobile: ItinerarioImageMobile.src,
+	tablet: ItinerarioImageTablet.src,
+	desktop: ItinerarioImageDesktop.src,
+	desktopLarge: ItinerarioImageDesktopLarge.src,
+};
+---
+
+<div class='sm:flex flex-col gap-4 md:hidden'>
+	<EventDetailsCard
+		cardImage={ubicacionImages.mobile}
+		cardTitle='Ubicación'
+		cardDescription='Consulta la ubicación antes de asistir: Villa Chabelita, Pachacamac – Lima.'
+		cardAction=''
+	/>
+	<EventDetailsCard
+		cardImage={dressCodeImages.mobile}
+		cardTitle='Dress code'
+		cardDescription='Revisa el código de vestimenta para mantener la armonía visual del evento.'
+		cardAction=''
+	/>
+	<EventDetailsCard
+		cardImage={itinerarioImages.mobile}
+		cardTitle='Itinerario'
+		cardDescription='Conoce el itinerario completo para acompañarnos en cada momento especial.'
+		cardAction=''
+	/>
+</div>
+<div class='sm:hidden flex-row gap-4 md:flex lg:hidden'>
+	<EventDetailsCard
+		cardImage={ubicacionImages.tablet}
+		cardTitle='Ubicación'
+		cardDescription='Consulta la ubicación antes de asistir: Villa Chabelita, Pachacamac – Lima.'
+		cardAction=''
+	/>
+	<EventDetailsCard
+		cardImage={dressCodeImages.tablet}
+		cardTitle='Dress code'
+		cardDescription='Revisa el código de vestimenta para mantener la armonía visual del evento.'
+		cardAction=''
+	/>
+	<EventDetailsCard
+		cardImage={itinerarioImages.tablet}
+		cardTitle='Itinerario'
+		cardDescription='Conoce el itinerario completo para acompañarnos en cada momento especial.'
+		cardAction=''
+	/>
+</div>
+<div class='sm:hidden flex-row gap-4 lg:flex xl:hidden'>
+	<EventDetailsCard
+		cardImage={ubicacionImages.desktop}
+		cardTitle='Ubicación'
+		cardDescription='Consulta la ubicación antes de asistir: Villa Chabelita, Pachacamac – Lima.'
+		cardAction=''
+	/>
+	<EventDetailsCard
+		cardImage={dressCodeImages.desktop}
+		cardTitle='Dress code'
+		cardDescription='Revisa el código de vestimenta para mantener la armonía visual del evento.'
+		cardAction=''
+	/>
+	<EventDetailsCard
+		cardImage={itinerarioImages.desktop}
+		cardTitle='Itinerario'
+		cardDescription='Conoce el itinerario completo para acompañarnos en cada momento especial.'
+		cardAction=''
+	/>
+</div>
+<div class='sm:hidden flex-row gap-4  xl:flex'>
+	<EventDetailsCard
+		cardImage={ubicacionImages.desktopLarge}
+		cardTitle='Ubicación'
+		cardDescription='Consulta la ubicación antes de asistir: Villa Chabelita, Pachacamac – Lima.'
+		cardAction=''
+	/>
+	<EventDetailsCard
+		cardImage={dressCodeImages.desktopLarge}
+		cardTitle='Dress code'
+		cardDescription='Revisa el código de vestimenta para mantener la armonía visual del evento.'
+		cardAction=''
+	/>
+	<EventDetailsCard
+		cardImage={itinerarioImages.desktopLarge}
+		cardTitle='Itinerario'
+		cardDescription='Conoce el itinerario completo para acompañarnos en cada momento especial.'
+		cardAction=''
+	/>
+</div>

@@ -1,4 +1,3 @@
-import { createGetLiveCollection } from 'astro/content/runtime';
 import React from "react";
 
 type Color = "purple" | "white" | "transparent";
