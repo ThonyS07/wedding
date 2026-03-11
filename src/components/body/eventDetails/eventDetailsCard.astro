@@ -12,9 +12,9 @@ type eventCardProps = {
 const { cardImage, cardTitle, cardDescription, cardAction } = Astro.props as eventCardProps;
 ---
 
-<div class="flex flex-col gap-4 items-center">
+<div class="flex flex-col w-[343px] h-[644px] md:w-[224px] md:h-[640px] lg:w-[357.3px] lg:h-[665px] xl:w-[300px] xl:h-[690.71px]  items-center justify-between">
     <EventCardImage cardImage={cardImage} cardTitle={cardTitle} />
-    <p class="text-[#555555] text-64 font-ephesis">{cardTitle}</p>
+    <p class="text-[#555555] sm:text-detailtitlemobile lg:text-detailtitledesktop font-ephesis">{cardTitle}</p>
     <p class="font-cormorant text-28 text-center">{cardDescription}</p>
     <Button text='Ver detalles' color="white" textColor="purple" action={cardAction} client:load></Button>
 </div>

@@ -40,6 +40,12 @@
 	--text-56: 56px;
 	--text-64: 64px;
 	--text-80: 80px;
+	--text-titlemobile:40px;
+	--text-titledesktop:56px;
+	--text-headersmobile:32px;
+	--text-headersdesktop:48px;
+	--text-detailtitlemobile:40px;
+	--text-detailtitledesktop:56px;
 	/*Typography line-height*/
 
 	--text-3xs--line-height: 12px;
