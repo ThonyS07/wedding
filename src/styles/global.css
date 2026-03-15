@@ -20,6 +20,7 @@
 	--color-white: #fbf6f7;
 	--color-black: #2d2d2d;
 	--color-gray: #535353;
+	--color-lightblack: #4f4f4f;
 
 	/*Breakpoints*/
 	--breakpoint-sm: 375px;

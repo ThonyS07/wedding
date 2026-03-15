@@ -1,0 +1,29 @@
+---
+import GiftsBankDataName from "./giftsBankDataName.astro";
+import GiftsBankDataTitle from "./giftsBankDataTitle.astro";
+import GiftsBankDataYapePlin from "./giftsBankDataYapePlin.astro";
+import GiftsBankDataAccount from "./giftsBankDataAccount.astro";
+
+type giftsBankDataCardProps = {
+	title: string;
+	account: string;
+	name: string;
+}
+const { title, account, name } = Astro.props as giftsBankDataCardProps
+---
+
+
+
+
+<div
+	class='flex flex-col items-center justify-center w-[343px] md:w-[348px] lg:w-[357px] xl:w-[384px] gap-4'>
+	<div>
+		<GiftsBankDataTitle title={title} />
+		{account === 'cuenta' && <GiftsBankDataAccount />}
+		{account === 'qr' && <GiftsBankDataYapePlin />}
+	</div>
+	<GiftsBankDataName name={name} />
+</div>
+
+
+

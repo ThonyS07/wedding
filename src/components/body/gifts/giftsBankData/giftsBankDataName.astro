@@ -1,0 +1,10 @@
+---
+type giftsBankDataNameProps = {
+	name: string;
+}
+const { name } = Astro.props as giftsBankDataNameProps
+---
+
+<div class="text-black font-cormorant text-[24px] text-center">
+	{name}
+</div>

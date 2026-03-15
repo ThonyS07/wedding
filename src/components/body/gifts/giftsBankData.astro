@@ -1,0 +1,21 @@
+---
+import GiftsBankDataAccount from "./giftsBankData/giftsBankDataAccount.astro";
+import GiftsBankDataYapePlin from "./giftsBankData/giftsBankDataYapePlin.astro";
+import GiftsBankDataTitle from "./giftsBankData/giftsBankDataTitle.astro";
+import GiftsBankDataName from "./giftsBankData/giftsBankDataName.astro";
+import GiftsBankDataCard from "./giftsBankData/giftsBankDataCard.astro";
+---
+
+<div
+	class='flex flex-col md:flex-row items-center justify-between gap-8 md:gap-6'>
+	<GiftsBankDataCard
+		title='Número de cuenta BCP'
+		account='cuenta'
+		name='Titular: Anthony Silva'
+	/>
+	<GiftsBankDataCard
+		title='Yape / Plin'
+		account='qr'
+		name='Titular: Andrea Encarnación'
+	/>
+</div>
