@@ -1,0 +1,44 @@
+---
+import mobileInvitationImage from "../../../assets/invitationImageMobile.png";
+import tabletInvitationImage from "../../../assets/invitationImageTablet.png";
+import desktopInvitationImage from "../../../assets/invitationImageDesktop.png";
+import desktopLargeInvitationImage from "../../../assets/invitationImageDesktopLarge.png";
+
+const images = {
+	mobile: mobileInvitationImage.src,
+	// tablet: tabletInvitationImage.src,
+	desktop: desktopInvitationImage.src,
+	desktopLarge: desktopLargeInvitationImage.src,
+};
+---
+
+<div class=' inset-0 w-full h-full'>
+	<div class='w-full h-full block md:hidden'>
+		<img
+			class='w-full h-full object-cover object-center'
+			src={images.mobile}
+			alt='mobile-cover-image'
+		/>
+	</div>
+	<!-- <div class='w-full h-full hidden md:block lg:hidden'>
+		<img
+			class='w-full h-full object-cover object-center'
+			src={images.tablet}
+			alt='tablet-cover-image'
+		/>
+	</div> -->
+	<div class='w-full h-full hidden lg:block xl:hidden'>
+		<img
+			class='w-full h-full object-cover object-center'
+			src={images.desktop}
+			alt='desktop-cover-image'
+		/>
+	</div>
+	<div class='w-full h-full hidden xl:block'>
+		<img
+			class='w-full h-full object-cover object-center'
+			src={images.desktopLarge}
+			alt='desktop-large-cover-image'
+		/>
+	</div>
+</div>

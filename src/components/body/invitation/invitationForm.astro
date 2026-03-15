@@ -1,0 +1,128 @@
+
+<form id='rsvp-form' class='flex flex-col gap-6'>
+	<div class='flex flex-col'>
+		<label for='nombre' class='mb-2'>Nombre</label>
+		<input
+			class='bg-[#FFFFFF] h-14 px-4'
+			type='text'
+			id='nombre'
+			name='nombre'
+			required
+		/>
+	</div>
+
+	<div class='flex flex-col'>
+		<label for='telefono' class='mb-2'>Número de teléfono</label>
+		<input
+			class='bg-[#FFFFFF] h-14 px-4'
+			type='tel'
+			id='telefono'
+			name='telefono'
+			required
+		/>
+	</div>
+
+	<div class='flex flex-col mb-2'>
+		<label class='mb-2'>Confirmación de asistencia</label>
+		<div class='flex flex-col gap-2'>
+			<label class='flex items-center gap-2 cursor-pointer'>
+				<input
+					type='radio'
+					name='asistencia'
+					value='Sí asistiré'
+					class='w-5 h-5 accent-purple'
+					required
+				/>
+				<span>Sí asistiré</span>
+			</label>
+			<label class='flex items-center gap-2 cursor-pointer'>
+				<input
+					type='radio'
+					name='asistencia'
+					value='No asistiré'
+					class='w-5 h-5 accent-purple'
+					required
+				/>
+				<span>No podré asistir</span>
+			</label>
+		</div>
+	</div>
+
+	<button
+		type='submit'
+		class='button bg-purple px-8 h-12 rounded-lg border-2 border-purple text-white inline-flex items-center justify-center cursor-pointer font-lato text-[18px] mt-2 disabled:opacity-70 transition-opacity'
+		id='submit-button'>
+		Enviar confirmación
+	</button>
+	<p id='form-message' class='hidden text-center mt-2 font-lato text-[16px]'>
+	</p>
+</form>
+
+<script>
+	const form = document.getElementById("rsvp-form") as HTMLFormElement;
+	const submitButton = document.getElementById(
+		"submit-button",
+	) as HTMLButtonElement;
+	const formMessage = document.getElementById(
+		"form-message",
+	) as HTMLParagraphElement;
+
+	const scriptURL = import.meta.env.PUBLIC_GOOGLE_APP_URL;
+
+	if (form) {
+		form.addEventListener("submit", (e) => {
+			e.preventDefault();
+
+			if (!scriptURL) {
+				alert(
+					"Por favor, asegúrate de configurar la variable de entorno PUBLIC_GOOGLE_APP_URL.",
+				);
+				return;
+			}
+
+			submitButton.disabled = true;
+			submitButton.innerText = "Enviando...";
+
+			// Convertir FormData a URLSearchParams para asegurar máxima compatibilidad de red
+			const formData = new FormData(form);
+			const data = new URLSearchParams();
+			for (const pair of formData) {
+				data.append(pair[0], pair[1] as string);
+			}
+			data.append("fecha", new Date().toLocaleDateString("es-PE"));
+
+			console.log("Enviando datos a:", scriptURL);
+
+			fetch(scriptURL, { 
+				method: "POST", 
+				body: data,
+				headers: {
+					"Content-Type": "application/x-www-form-urlencoded"
+				}
+			})
+				.then((response) => {
+					console.log("Respuesta recibida:", response);
+					if (!response.ok) {
+						throw new Error("Respuesta de red no fue ok");
+					}
+					// Al ser un redirect de Google Apps script, response.ok debería ser true.
+					formMessage.innerText = "¡Gracias por enviar tu respuesta!";
+					formMessage.classList.remove("hidden", "text-red-500");
+					formMessage.classList.add("text-green-600");
+					form.reset();
+				})
+				.catch((error) => {
+					console.error("Error al hacer fetch!", error);
+					// Fallback: A veces CORS bloquea la lectura de la respuesta, 
+					// pero el script de Google SI se ejecutó.
+					formMessage.innerText = "Confirmación enviada (o hubo problema de red CORS). Verifica tu consola.";
+					formMessage.classList.remove("hidden", "text-green-600");
+					formMessage.classList.add("text-blue-500");
+				})
+				.finally(() => {
+					submitButton.disabled = false;
+					submitButton.innerText = "Enviar confirmación";
+				});
+		});
+	}
+</script>

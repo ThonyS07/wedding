@@ -1,0 +1,19 @@
+---
+import InvitationDescription from "./invitationDescription.astro";
+import InvitationForm from "./invitationForm.astro";
+import InvitationImage from "./invitationImage.astro";
+import InvitationRestrictions from "./invitationRestrictions.astro";
+import InvitationTitle from "./invitationTitle.astro";
+---
+
+<section class="flex flex-col bg-white md:flex-row">
+    <div class="md:w-50%">
+        <InvitationImage />
+    </div>
+	<div class="pt-16 pb-20 px-4 lg:pb-20 lg:pr-20 lg:pl-[95px] xl:pt-[120px] xl:pr-[120px] xl:pl-[102px] xl:pb-[150px]">
+		<InvitationTitle />
+		<InvitationDescription />
+		<InvitationRestrictions />
+		<InvitationForm />
+	</div>
+</section>
