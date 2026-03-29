@@ -1,0 +1,21 @@
+---
+import Logo from "./logo.astro";
+import Tab from "./tab.astro";
+import HamburgerIcon from "./hamburgerIcon.astro";
+---
+
+<section
+	class='absolute z-1000 w-full h-16 md:px-24 lg:px-20 xl:px-[120px] md:h-[72px] lg:h-[80px] xl:h-[96px] bg-[#fbf5f7]/80'>
+	<div class='hidden md:flex items-center justify-evenly h-full'>
+		<Tab href='#nosotros'>Nosotros</Tab>
+		<Tab href='#evento'>Evento</Tab>
+		<Logo type="desktop" />
+		<Tab href='#obsequios'>Obsequios</Tab>
+		<Tab href='#asistencia'>Asistencia</Tab>
+	</div>
+
+	<div class='md:hidden flex items-center justify-between px-4 h-full'>
+		<Logo type="mobile" />
+		<HamburgerIcon />
+	</div>
+</section>

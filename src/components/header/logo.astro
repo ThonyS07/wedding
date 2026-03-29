@@ -1,0 +1,35 @@
+---
+import LogoDesktop from "../../assets/logoDesktop.svg";
+import LogoMobile from "../../assets/logoMobile.svg";
+import LogoTablet from "../../assets/logoTablet.svg";
+import LogoDesktopLarge from "../../assets/logoDesktopLarge.svg";
+
+export interface Props {
+	type?: "mobile" | "desktop" | "all";
+}
+
+const { type = "all" } = Astro.props;
+---
+
+{
+	(type === "all" || type === "mobile") && (
+		<div class='flex md:hidden'>
+			<LogoMobile />
+		</div>
+	)
+}
+{
+	(type === "all" || type === "desktop") && (
+		<>
+			<div class='hidden px-12 md:flex lg:hidden'>
+				<LogoTablet />
+			</div>
+			<div class='hidden px-[139px] lg:flex xl:hidden'>
+				<LogoDesktop />
+			</div>
+			<div class='hidden px-[144px] xl:flex'>
+				<LogoDesktopLarge />
+			</div>
+		</>
+	)
+}

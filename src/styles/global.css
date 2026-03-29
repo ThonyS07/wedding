@@ -4,6 +4,7 @@
 @import "@fontsource/playball";
 @import "@fontsource/alex-brush";
 @import "@fontsource/lato";
+@import "@fontsource/playfair-display-sc";
 @custom-variant dark (&:where(.dark, .dark *));
 @theme {
 	--font-lato: "Lato", sans-serif;
@@ -11,6 +12,7 @@
 	--font-cormorant: "Cormorant Garamond", serif;
 	--font-playball: "Playball", cursive;
 	--font-alex: "Alex Brush", cursive;
+	--font-playfair: "Playfair Display SC", serif;
 
 	/*COLOURS*/
 	--color-grape: #3b2044;
