@@ -1,0 +1,38 @@
+---
+import ColorsCard from "./colorsCard.astro";
+const hotColorList = [
+	"#8F0407",
+	"#EE1C25",
+	"#F5796D",
+	"#9B6702",
+	"#F58225",
+	"#FDC67B",
+	"#A19600",
+	"#CBBE00",
+	"#FEF102",
+];
+const coldColorList = [
+	"#3F7829",
+	"#74BD43",
+	"#ADD68A",
+	"#006E6F",
+	"#00ACAC",
+	"#56C4C5",
+	"#013D73",
+	"#0465B2",
+	"#88ABDD",
+	"#000000",
+];
+---
+
+<ColorsCard
+    borderOne={false}
+    borderTwo={false}
+	colorListOne={hotColorList}
+	wrapperTextOne='Colores cálidos vibrantes u oscuros'
+	colorListTwo={coldColorList}
+	wrapperTextTwo='Colores fríos vibrantes u oscuros'
+	cardTitle='✔️ Colores permitidos'
+	cardDescription='Puedes usar los colores que más te gusten, e incluso estampados en estos tonos:'
+/>
+

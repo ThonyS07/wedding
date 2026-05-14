@@ -1,0 +1,40 @@
+---
+import ColorsCard from "./colorsCard.astro";
+const whiteColorList = [
+	"#ffffff",
+	"#FBFAF1",
+	"#F6F7F0",
+	"#FBF1E9",
+	"#F2E9D8",
+	"#E6DAC5",
+];
+const purpleColorList = [
+	"#69015A",
+	"#A3218E",
+	"#BD7CB4",
+	"#38085C",
+	"#592F92",
+	"#7E6AAF",
+];
+const lightColorList = [
+	"#FEFDE3",
+	"#FDEFE6",
+	"#FEF2FB",
+	"#ECF6FB",
+	"#F1F7ED",
+];
+---
+
+<ColorsCard
+	colorListOne={whiteColorList}
+	wrapperTextOne='Blanco y similares'
+	colorListTwo={purpleColorList}
+	wrapperTextTwo='Morado y similares'
+	cardTitle='❌ Colores prohibidos'
+	cardDescription='Para no confundirte con la corte nupcial y decoración, asegúrate de no usar:'
+	colorListThree={lightColorList}
+	wrapperTextThree='Colores demasiado claros o que se fotografíen blanco.'
+	borderOne={true}
+	borderTwo={false}
+	borderThree={true}
+/>

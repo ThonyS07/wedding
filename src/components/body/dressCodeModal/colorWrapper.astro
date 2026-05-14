@@ -1,0 +1,18 @@
+---
+import ColorCircle from "./colorCircle.astro";
+interface ColorWrapperProps {
+	colorList: string[];
+	wrapperText: string;
+    border?: boolean;
+}
+const { colorList, wrapperText, border }: ColorWrapperProps =
+	Astro.props as ColorWrapperProps;
+
+---
+
+<div>
+	<div class='flex flex-row flex-wrap justify-center gap-4 my-4'>
+		{colorList.map((color) => <ColorCircle color={color} borderColor={border} />)}
+	</div>
+	<p class='font-cormorant text-[16px] flex justify-center'>{wrapperText}</p>
+</div>
