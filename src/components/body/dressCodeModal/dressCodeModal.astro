@@ -6,10 +6,21 @@ import ModalSubtitle from "../../modalSubtitle.astro";
 import ModalTitle from "../../modalTitle.astro";
 ---
 
-<div class='flex flex-col gap-4'>
-    <ModalHeader/>
-	<ModalTitle title='Dress Code' />
-	<ModalSubtitle title='Elegante' />
-	<AdmittedColors />
-	<ForbiddenColors />
-</div>
+<dialog
+	id="dressCodeModal"
+	class='modal-wrapper backdrop:bg-black/60 rounded-3xl w-11/12 max-w-4xl max-h-[90vh] m-auto fixed inset-0 overflow-hidden bg-white'>
+	<div class='flex flex-col max-h-[90vh] h-full'>
+		<!-- Header Fijo -->
+		<div class='shrink-0 p-4 sm:px-8 sm:pt-6 pb-0'>
+			<ModalHeader />
+		</div>
+		
+		<!-- Contenido Scrolleable -->
+		<div class='overflow-y-auto flex-1 flex flex-col gap-4 p-4 sm:px-8 sm:pb-8'>
+			<ModalTitle title='Dress Code' />
+			<ModalSubtitle title='Elegante' />
+			<AdmittedColors />
+			<ForbiddenColors />
+		</div>
+	</div>
+</dialog>

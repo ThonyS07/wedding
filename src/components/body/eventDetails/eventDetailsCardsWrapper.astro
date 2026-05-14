@@ -43,7 +43,7 @@ const itinerarioImages = {
 		cardImage={dressCodeImages.mobile}
 		cardTitle='Dress code'
 		cardDescription='Revisa el código de vestimenta para mantener la armonía visual del evento.'
-		cardAction=''
+		cardAction='#dressCodeModal'
 	/>
 	<EventDetailsCard
 		cardImage={itinerarioImages.mobile}
@@ -63,7 +63,7 @@ const itinerarioImages = {
 		cardImage={dressCodeImages.tablet}
 		cardTitle='Dress code'
 		cardDescription='Revisa el código de vestimenta para mantener la armonía visual del evento.'
-		cardAction=''
+		cardAction='#dressCodeModal'
 	/>
 	<EventDetailsCard
 		cardImage={itinerarioImages.tablet}
@@ -83,7 +83,7 @@ const itinerarioImages = {
 		cardImage={dressCodeImages.desktop}
 		cardTitle='Dress code'
 		cardDescription='Revisa el código de vestimenta para mantener la armonía visual del evento.'
-		cardAction=''
+		cardAction='#dressCodeModal'
 	/>
 	<EventDetailsCard
 		cardImage={itinerarioImages.desktop}
@@ -103,7 +103,7 @@ const itinerarioImages = {
 		cardImage={dressCodeImages.desktopLarge}
 		cardTitle='Dress code'
 		cardDescription='Revisa el código de vestimenta para mantener la armonía visual del evento.'
-		cardAction=''
+		cardAction='#dressCodeModal'
 	/>
 	<EventDetailsCard
 		cardImage={itinerarioImages.desktopLarge}
@@ -112,3 +112,16 @@ const itinerarioImages = {
 		cardAction=''
 	/>
 </div>
+
+<script>
+	const dressCodeBtns = document.querySelectorAll('a[href="#dressCodeModal"]');
+	dressCodeBtns.forEach(btn => {
+		btn.addEventListener('click', (e) => {
+			e.preventDefault();
+			const modal = document.getElementById('dressCodeModal') as HTMLDialogElement;
+			if (modal) {
+				modal.showModal();
+			}
+		});
+	});
+</script>
