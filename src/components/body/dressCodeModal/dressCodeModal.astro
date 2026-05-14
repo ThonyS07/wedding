@@ -1,10 +1,15 @@
 ---
-import AdmittedColors from './admittedColors.astro';
+import AdmittedColors from "./admittedColors.astro";
 import ForbiddenColors from "./forbiddenColors.astro";
-
+import ModalHeader from "../../modalHeader.astro";
+import ModalSubtitle from "../../modalSubtitle.astro";
+import ModalTitle from "../../modalTitle.astro";
 ---
 
-<div>
-<AdmittedColors/>
-<ForbiddenColors/>
+<div class='flex flex-col gap-4'>
+    <ModalHeader/>
+	<ModalTitle title='Dress Code' />
+	<ModalSubtitle title='Elegante' />
+	<AdmittedColors />
+	<ForbiddenColors />
 </div>

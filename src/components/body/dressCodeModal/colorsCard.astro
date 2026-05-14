@@ -31,7 +31,7 @@ import ColorWrapper from "./colorWrapper.astro";
 
 {
 	colorListThree ? (
-		<section class='my-12'>
+		<section >
 			<p class='font-cormorant text-28 text-center'>{cardTitle}</p>
 			<p class='font-cormorant text-center text-[20px]'>{cardDescription}</p>
 			<ColorWrapper colorList={colorListOne} wrapperText={wrapperTextOne} border={borderOne} />
@@ -39,7 +39,7 @@ import ColorWrapper from "./colorWrapper.astro";
 			<ColorWrapper colorList={colorListThree} wrapperText={wrapperTextThree} border={borderThree} />
 		</section>
 	) : (
-		<section class='my-12'>
+		<section >
 			<p class='font-cormorant text-28 text-center'>{cardTitle}</p>
 			<p class='font-cormorant text-center text-[20px]'>{cardDescription}</p>
 			<ColorWrapper colorList={colorListOne} wrapperText={wrapperTextOne} border={borderOne}/>
