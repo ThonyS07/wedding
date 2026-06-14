@@ -1,42 +1,22 @@
 ---
 import ourHistoryImage from "../../../assets/1.jpg";
-
-
-const images = {
-	mobile: ourHistoryImage,
-	tablet: ourHistoryImage,
-	desktop: ourHistoryImage,
-	desktopLarge: ourHistoryImage,
-};
+import ourHistoryImageTablet from "../../../assets/ourHistoryTablet.png";
 ---
 
-<div class=''>
-	<div class='w-full h-full block md:hidden'>
+<div>
+	<div class='w-full hidden md:block lg:hidden h-[450px]'>
 		<img
 			class='w-full h-full object-cover object-center'
-			src={images.mobile.src}
+			src={ourHistoryImageTablet.src}
 			alt='mobile-cover-image'
 		/>
 	</div>
-	<div class='w-full h-full hidden md:block lg:hidden'>
+	<div class='w-full h-[366px] md:hidden lg:h-[798px] xl:h-[899px]'>
 		<img
 			class='w-full h-full object-cover object-center'
-			src={images.tablet.src}
-			alt='tablet-cover-image'
-		/>
-	</div>
-	<div class='w-full h-full hidden lg:block xl:hidden'>
-		<img
-			class='w-full h-full object-cover object-center'
-			src={images.desktop.src}
-			alt='desktop-cover-image'
-		/>
-	</div>
-	<div class='w-full h-full hidden xl:block'>
-		<img
-			class='w-full h-full object-cover object-center'
-			src={images.desktopLarge.src}
-			alt='desktop-large-cover-image'
+			src={ourHistoryImage.src}
+			alt='mobile-cover-image'
 		/>
 	</div>
 </div>
+

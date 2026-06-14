@@ -6,7 +6,7 @@ import OurHistorySign from "./ourHistorySign.astro";
 import OurHistoryLogo from "./ourHistoryLogo.astro";
 ---
 
-<section id="nosotros">
+<section id='nosotros' class=''>
 	<div class='flex flex-col lg:hidden'>
 		<OurHistoryImage />
 		<OurHistoryTitle />
@@ -14,15 +14,14 @@ import OurHistoryLogo from "./ourHistoryLogo.astro";
 		<OurHistorySign />
 		<OurHistoryLogo />
 	</div>
-	<div class='hidden lg:grid lg:grid-cols-2'>
-		<div
-			class='pl-20 pr-[95px] xl:pl-[120px] xl:pr-[98px]'>
+	<div class='hidden lg:grid lg:grid-cols-2 h-[798px] xl:h-[899px]'>
+		<div class='pl-20 pr-[95px] xl:pl-[120px] xl:pr-[120px] pt-[64px] xl:pt-[120px] pb-[64px] xl:pb-[120px]'>
 			<OurHistoryTitle />
 			<OurHistoryDescription />
 			<OurHistorySign />
 			<OurHistoryLogo />
 		</div>
-		<div>
+		<div class='h-[798px] xl:h-[899px]'>
 			<OurHistoryImage />
 		</div>
 	</div>
