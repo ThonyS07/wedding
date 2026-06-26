@@ -1,42 +1,23 @@
 ---
-import invitationImage from "../../../assets/2.jpg";
+import invitationImage from "../../../assets/1.jpg";
 
-
-const images = {
-	mobile: invitationImage.src,
-	// tablet: tabletInvitationImage.src,
-	desktop: invitationImage.src,
-	desktopLarge: invitationImage.src,
-};
+import ourHistoryImageTablet from "../../../assets/ourHistoryTablet.png";
 ---
 
-<div class=' inset-0 w-full h-full'>
-	<div class='w-full h-full block md:hidden'>
+<div>
+	<div class='w-full hidden md:block lg:hidden h-[450px]'>
 		<img
 			class='w-full h-full object-cover object-center'
-			src={images.mobile}
+			src={ourHistoryImageTablet.src}
 			alt='mobile-cover-image'
 		/>
 	</div>
-	<!-- <div class='w-full h-full hidden md:block lg:hidden'>
+	<div class='w-full h-[374px] md:hidden lg:block lg:h-[817px] lg:w-[652px] xl:h-[924px] xl:w-[732px]'>
 		<img
 			class='w-full h-full object-cover object-center'
-			src={images.tablet}
-			alt='tablet-cover-image'
-		/>
-	</div> -->
-	<div class='w-full h-full hidden lg:block xl:hidden'>
-		<img
-			class='w-full h-full object-cover object-center'
-			src={images.desktop}
-			alt='desktop-cover-image'
-		/>
-	</div>
-	<div class='w-full h-full hidden xl:block'>
-		<img
-			class='w-full h-full object-cover object-center'
-			src={images.desktopLarge}
-			alt='desktop-large-cover-image'
+			src={invitationImage.src}
+			alt='mobile-cover-image'
 		/>
 	</div>
 </div>
+
