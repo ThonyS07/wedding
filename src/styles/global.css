@@ -55,9 +55,11 @@
 
 	/*Button typography*/
 
+	
+	--text-btnXL: 18px;
 	--text-btnXXL: 20px;
-
 	--text-btnXXL--line-height: 24px;
+	--text-btnXL--line-height: 22px;
 
 	--font-weight-extrablack: 1000;
 	--font-weight-black: 900;

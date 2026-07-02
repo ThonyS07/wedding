@@ -25,7 +25,9 @@
 	const closeButtons = document.querySelectorAll(".close-modal-btn");
 
 	closeButtons.forEach((button) => {
-		button.addEventListener("click", () => {
+		button.addEventListener("click", (event) => {
+			event.preventDefault();
+
 			// Intenta cerrar si es un elemento <dialog> nativo
 			const dialog = button.closest("dialog");
 			if (dialog) {

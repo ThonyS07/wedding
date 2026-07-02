@@ -4,23 +4,31 @@ import ForbiddenColors from "./forbiddenColors.astro";
 import ModalHeader from "../../modalHeader.astro";
 import ModalSubtitle from "../../modalSubtitle.astro";
 import ModalTitle from "../../modalTitle.astro";
+import DescriptionAndDetails from "./descriptionAndDetails.astro";
+import OufitsInspiration from "./outfitsInspiration.astro";
+import { Button } from "../../button";
 ---
 
 <dialog
-	id="dressCodeModal"
-	class='modal-wrapper backdrop:bg-black/60 rounded-3xl w-11/12 max-w-4xl max-h-[90vh] m-auto fixed inset-0 overflow-hidden bg-white'>
+	id='dressCodeModal'
+	class='lg:backdrop:bg-black/60 rounded-3xl w-full lg:w-[700px] lg:h-[610px] h-full lg:max-h-[90vh] m-auto fixed inset-0 overflow-hidden bg-[#FFFFFF]'>
 	<div class='flex flex-col max-h-[90vh] h-full'>
 		<!-- Header Fijo -->
 		<div class='shrink-0 p-4 sm:px-8 sm:pt-6 pb-0'>
 			<ModalHeader />
 		</div>
-		
+
 		<!-- Contenido Scrolleable -->
 		<div class='overflow-y-auto flex-1 flex flex-col gap-4 p-4 sm:px-8 sm:pb-8'>
 			<ModalTitle title='Dress Code' />
 			<ModalSubtitle title='Elegante' />
+			<DescriptionAndDetails />
 			<AdmittedColors />
 			<ForbiddenColors />
+			<OufitsInspiration />
+			<div class='w-full flex justify-center mt-4'>
+				<Button text='Cerrar' color='purple' textColor='white' action='#' className='close-modal-btn' client:load />
+			</div>
 		</div>
 	</div>
 </dialog>

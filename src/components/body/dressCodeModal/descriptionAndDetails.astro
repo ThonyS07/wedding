@@ -1,0 +1,28 @@
+---
+import DescriptionImage from "./descriptionAndDetails/descriptionImage.astro";
+import HeSheOptions from "./descriptionAndDetails/heSheOptions.astro";
+---
+
+<div class='flex flex-col items-center justify-center text-center lg:w-full'>
+	<p class='font-cormorant text-[20px] max-w-xl'>
+		Queremos que te sientas especial y luzcas espectacular en nuestro día.
+	</p>
+
+	<div class=' flex flex-row mt-4  gap-4'>
+        <HeSheOptions
+            title='Ellas:'
+            options={[
+                'Vestido',
+                'Accesorios',
+                'Tacones',
+            ]}/>
+		<DescriptionImage />
+        <HeSheOptions
+            title='Ellos:'
+            options={[
+                'Traje y camisa',
+                'Corbata',
+                'Zapatos',
+            ]}/>
+	</div>
+</div>

@@ -8,6 +8,7 @@ export interface ButtonProps {
 	color: Color;
 	action: string | (() => void);
 	textColor: TextColor;
+	className?: string;
 }
 
 export const Button: React.FC<ButtonProps> = ({
@@ -15,9 +16,10 @@ export const Button: React.FC<ButtonProps> = ({
 	color,
 	action,
 	textColor,
+	className: extraClassName = "",
 }) => {
 
-	const className = color === "purple" && textColor === 'white'  ? `button bg-purple px-8 h-12 rounded-lg border-2 border-purple text-white inline-flex items-center justify-center cursor-pointer font-lato text-[18px]` : `button bg-transparent  px-8 h-12 rounded-lg border-2 border-purple text-purple inline-flex items-center justify-center cursor-pointer font-lato text-[18px]`;
+	const className = `${extraClassName} ${color === "purple" && textColor === 'white'  ? `button bg-purple px-8 h-12 rounded-lg border-2 border-purple text-white inline-flex items-center justify-center cursor-pointer font-lato text-[18px]` : `button bg-transparent  px-8 h-12 rounded-lg border-2 border-purple text-purple inline-flex items-center justify-center cursor-pointer font-lato text-[18px]`}`;
 
 	if (typeof action === "string") {
 		return (
