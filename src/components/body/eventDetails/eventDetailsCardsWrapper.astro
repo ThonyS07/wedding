@@ -32,96 +32,46 @@ const itinerarioImages = {
 };
 ---
 
-<div class='sm:flex flex-col gap-4 md:hidden'>
+<div class='flex flex-col md:flex-row justify-center gap-6'>
 	<EventDetailsCard
-		cardImage={ubicacionImages.mobile}
+		cardImages={ubicacionImages}
 		cardTitle='Ubicación'
 		cardDescription='Consulta la ubicación antes de asistir: Villa Chabelita, Pachacamac – Lima.'
-		cardAction=''
+		cardAction='#mapModal'
 	/>
+
 	<EventDetailsCard
-		cardImage={dressCodeImages.mobile}
+		cardImages={dressCodeImages}
 		cardTitle='Dress code'
 		cardDescription='Revisa el código de vestimenta para mantener la armonía visual del evento.'
 		cardAction='#dressCodeModal'
 	/>
+
 	<EventDetailsCard
-		cardImage={itinerarioImages.mobile}
+		cardImages={itinerarioImages}
 		cardTitle='Itinerario'
 		cardDescription='Conoce el itinerario completo para acompañarnos en cada momento especial.'
-		cardAction=''
-	/>
-</div>
-<div class='sm:hidden items-center flex-row gap-4 md:flex lg:hidden'>
-	<EventDetailsCard
-		cardImage={ubicacionImages.tablet}
-		cardTitle='Ubicación'
-		cardDescription='Consulta la ubicación antes de asistir: Villa Chabelita, Pachacamac – Lima.'
-		cardAction=''
-	/>
-	<EventDetailsCard
-		cardImage={dressCodeImages.tablet}
-		cardTitle='Dress code'
-		cardDescription='Revisa el código de vestimenta para mantener la armonía visual del evento.'
-		cardAction='#dressCodeModal'
-	/>
-	<EventDetailsCard
-		cardImage={itinerarioImages.tablet}
-		cardTitle='Itinerario'
-		cardDescription='Conoce el itinerario completo para acompañarnos en cada momento especial.'
-		cardAction=''
-	/>
-</div>
-<div class='sm:hidden items-center flex-row gap-4 lg:flex xl:hidden'>
-	<EventDetailsCard
-		cardImage={ubicacionImages.desktop}
-		cardTitle='Ubicación'
-		cardDescription='Consulta la ubicación antes de asistir: Villa Chabelita, Pachacamac – Lima.'
-		cardAction=''
-	/>
-	<EventDetailsCard
-		cardImage={dressCodeImages.desktop}
-		cardTitle='Dress code'
-		cardDescription='Revisa el código de vestimenta para mantener la armonía visual del evento.'
-		cardAction='#dressCodeModal'
-	/>
-	<EventDetailsCard
-		cardImage={itinerarioImages.desktop}
-		cardTitle='Itinerario'
-		cardDescription='Conoce el itinerario completo para acompañarnos en cada momento especial.'
-		cardAction=''
-	/>
-</div>
-<div class='sm:hidden flex-row items-center gap-4  xl:flex'>
-	<EventDetailsCard
-		cardImage={ubicacionImages.desktopLarge}
-		cardTitle='Ubicación'
-		cardDescription='Consulta la ubicación antes de asistir: Villa Chabelita, Pachacamac – Lima.'
-		cardAction=''
-	/>
-	<EventDetailsCard
-		cardImage={dressCodeImages.desktopLarge}
-		cardTitle='Dress code'
-		cardDescription='Revisa el código de vestimenta para mantener la armonía visual del evento.'
-		cardAction='#dressCodeModal'
-	/>
-	<EventDetailsCard
-		cardImage={itinerarioImages.desktopLarge}
-		cardTitle='Itinerario'
-		cardDescription='Conoce el itinerario completo para acompañarnos en cada momento especial.'
-		cardAction=''
+		cardAction='#itineraryModal'
 	/>
 </div>
 
 <script>
-	const dressCodeBtns = document.querySelectorAll('a[href="#dressCodeModal"]');
-	dressCodeBtns.forEach(btn => {
-		btn.addEventListener('click', (e) => {
-			e.preventDefault();
-			const modal = document.getElementById('dressCodeModal') as HTMLDialogElement;
-			if (modal) {
-				modal.showModal();
-			}
-		});
+	document.addEventListener("click", (e) => {
+		const target = e.target as HTMLElement;
+
+		const link = target.closest('a[href^="#"]') as HTMLAnchorElement | null;
+
+		if (!link) return;
+
+		const href = link.getAttribute("href");
+
+		if (!href) return;
+
+		const dialog = document.querySelector<HTMLDialogElement>(href);
+
+		if (!dialog) return;
+
+		e.preventDefault();
+		dialog.showModal();
 	});
 </script>

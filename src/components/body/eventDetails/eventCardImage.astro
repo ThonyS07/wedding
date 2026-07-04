@@ -1,7 +1,36 @@
 ---
-const { cardImage, cardTitle } = Astro.props;
+interface ImageProps {
+	cardImages: {
+		mobile: string;
+		tablet: string;
+		desktop: string;
+		desktopLarge: string;
+	};
+	cardTitle: string;
+}
+const { cardImages, cardTitle } = Astro.props as ImageProps;
 ---
 
 <div class="w-70 h-90  md:w-56 md:h-70 lg:w-70 lg:h-90 xl:w-75 xl:h-[385.71px] rounded-t-full ">
-	<img class="w-full h-full" src={cardImage} alt={cardTitle} />
+	{cardImages	 &&(
+		<picture>
+		<source
+			media="(min-width: 1440px)"
+			srcset={cardImages.desktopLarge}
+			/>
+		<source
+			media="(min-width: 1280px)"
+			srcset={cardImages.desktop}
+			/>
+		<source
+			media="(min-width: 768px)"
+			srcset={cardImages.tablet}
+			/>
+		<img
+			class="w-full h-full rounded-t-full"
+			src={cardImages.mobile}
+			alt={cardTitle}
+			/>
+	</picture>
+		)}
 </div>

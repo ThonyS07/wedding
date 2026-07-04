@@ -1,20 +1,36 @@
 ---
-import { Button } from '../../button';
-import EventCardImage from './eventCardImage.astro'
+import { Button } from "../../button";
+import EventCardImage from "./eventCardImage.astro";
 
-type eventCardProps = {
-    cardImage: string;
-    cardTitle: string;
-    cardDescription: string;
-    cardAction: string;
+interface eventCardProps {
+	cardImages: {
+		mobile: string;
+		tablet: string;
+		desktop: string;
+		desktopLarge: string;
+	};
+	cardTitle: string;
+	cardDescription: string;
+	cardAction: string;
 }
 
-const { cardImage, cardTitle, cardDescription, cardAction } = Astro.props as eventCardProps;
+const { cardImages, cardTitle, cardDescription, cardAction } =
+	Astro.props as eventCardProps;
 ---
 
-<div class="flex flex-col w-85.75 h-161 md:w-56 md:h-160 lg:w-[357.3px] lg:h-166.25 xl:w-75 xl:h-[690.71px]  items-center justify-between">
-    <EventCardImage cardImage={cardImage} cardTitle={cardTitle} />
-    <p class="text-[#555555] sm:text-detailtitlemobile lg:text-detailtitledesktop font-ephesis">{cardTitle}</p>
-    <p class="font-cormorant text-28 text-center">{cardDescription}</p>
-    <Button text='Ver detalles' color="white" textColor="purple" action={cardAction} client:load></Button>
+<div
+	class='flex flex-col w-85.75 h-161 md:w-56 md:h-160 lg:w-[357.3px] lg:h-166.25 xl:w-75 xl:h-[690.71px] items-center justify-between'>
+	<EventCardImage cardImages={cardImages} cardTitle={cardTitle} />
+	<p
+		class='text-[#555555] sm:text-detailtitlemobile lg:text-detailtitledesktop font-ephesis'>
+		{cardTitle}
+	</p>
+	<p class='font-cormorant text-28 text-center'>{cardDescription}</p>
+	<Button
+		text='Ver detalles'
+		color='white'
+		textColor='purple'
+		action={cardAction}
+		client:load
+	/>
 </div>
