@@ -19,13 +19,23 @@ const { cardImages, cardTitle, cardDescription, cardAction } =
 ---
 
 <div
-	class='flex flex-col w-85.75 h-161 md:w-56 md:h-160 lg:w-[357.3px] lg:h-166.25 xl:w-75 xl:h-[690.71px] items-center justify-between'>
+	class='flex flex-col w-85.75 h-161 sm:mb-12 md:mb-0 md:w-56 md:h-160 lg:w-[357.3px] lg:h-166.25 xl:w-75 xl:h-[690.71px] items-center justify-between'>
 	<EventCardImage cardImages={cardImages} cardTitle={cardTitle} />
 	<p
 		class='text-[#555555] sm:text-detailtitlemobile lg:text-detailtitledesktop font-ephesis'>
 		{cardTitle}
 	</p>
-	<p class='font-cormorant text-28 text-center'>{cardDescription}</p>
+	<p
+		class='font-cormorant
+            text-[24px]
+            text-center
+            leading-tight
+            min-h-[96px]
+            flex
+            items-center
+            px-2'>
+		{cardDescription}
+	</p>
 	<Button
 		text='Ver detalles'
 		color='white'
