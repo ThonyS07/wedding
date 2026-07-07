@@ -1,0 +1,15 @@
+---
+interface Props {
+	text?: string;
+}
+
+const { text = "Cerrar" } = Astro.props;
+---
+
+<div class='w-full flex justify-center mt-8'>
+	<button
+		type='button'
+		class='close-modal-btn px-6 py-2 bg-purple text-white rounded-full font-cormorant text-btnXL hover:opacity-90 transition-opacity cursor-pointer'>
+		{text}
+	</button>
+</div>

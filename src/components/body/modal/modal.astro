@@ -1,0 +1,58 @@
+---
+import ModalHeader from "./modalHeader.astro";
+import ModalCloseButton from "./modalCloseButton.astro";
+
+interface Props {
+	id: string;
+	title: string;
+	subtitle?: string;
+}
+
+const { id, title, subtitle } = Astro.props;
+---
+
+<dialog
+	id={id}
+	class='rounded-2xl backdrop:bg-black/50 p-0 border-none bg-white'>
+	<div class='relative w-[360px] md:w-[700px] lg:w-[900px] p-8'>
+		<ModalHeader />
+
+		<div class='text-center'>
+			<h2
+				class='font-ephesis text-detailtitlemobile lg:text-detailtitledesktop text-[#555555]'>
+				{title}
+			</h2>
+
+			{
+				subtitle && (
+					<p class='font-cormorant text-lg mt-2 text-gray-500'>{subtitle}</p>
+				)
+			}
+		</div>
+
+		<div class='mt-8'>
+			<slot />
+		</div>
+
+		<!-- Siempre aparece -->
+		<ModalCloseButton />
+	</div>
+</dialog>
+
+<script>
+	document.addEventListener("click", (event) => {
+		const target = event.target;
+
+		if (!(target instanceof HTMLElement)) return;
+
+		const button = target.closest(".close-modal-btn");
+
+		if (!button) return;
+
+		const dialog = button.closest("dialog");
+
+		if (dialog instanceof HTMLDialogElement) {
+			dialog.close();
+		}
+	});
+</script>

@@ -1,0 +1,26 @@
+---
+const { lat, lng, zoom = 16 } = Astro.props;
+
+const googleMapsUrl = `https://www.google.com/maps?q=${lat},${lng}`;
+const embedUrl = `https://www.google.com/maps?q=${lat},${lng}&z=${zoom}&output=embed`;
+---
+
+<div class='p-4'>
+	<iframe
+		src={embedUrl}
+		width='100%'
+		height='420'
+		style='border:0'
+		loading='lazy'
+		allowfullscreen></iframe>
+
+	<div class='flex justify-center mt-6'>
+		<a
+			href={googleMapsUrl}
+			target='_blank'
+			rel='noopener noreferrer'
+			class='px-6 py-2 rounded-full bg-purple text-white font-cormorant'>
+			Abrir en Google Maps
+		</a>
+	</div>
+</div>

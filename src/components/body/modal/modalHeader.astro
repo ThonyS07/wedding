@@ -1,0 +1,44 @@
+<div class='flex justify-end w-full'>
+	<button
+		type='button'
+		class='close-modal-btn p-2 text-gray-500 hover:text-gray-800 transition-colors rounded-full hover:bg-gray-100 cursor-pointer'
+		aria-label='Cerrar modal'>
+		<svg
+			xmlns='http://www.w3.org/2000/svg'
+			class='h-6 w-6'
+			fill='none'
+			viewBox='0 0 24 24'
+			stroke='currentColor'>
+			<path
+				stroke-linecap='round'
+				stroke-linejoin='round'
+				stroke-width='2'
+				d='M6 18L18 6M6 6l12 12'></path>
+		</svg>
+	</button>
+</div>
+
+<script>
+	document.addEventListener("click", (event) => {
+		const target = event.target;
+
+		if (!(target instanceof HTMLElement)) return;
+
+		const button = target.closest(".close-modal-btn");
+
+		if (!(button instanceof HTMLButtonElement)) return;
+
+		const dialog = button.closest("dialog");
+
+		if (dialog instanceof HTMLDialogElement) {
+			dialog.close();
+			return;
+		}
+
+		const modal = button.closest(".modal-wrapper");
+
+		if (modal instanceof HTMLElement) {
+			modal.style.display = "none";
+		}
+	});
+</script>

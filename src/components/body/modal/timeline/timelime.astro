@@ -1,0 +1,46 @@
+---
+import TimelineItem from "./timelineItem.astro";
+import TimelineLine from "./timelineLine.astro";
+
+interface Item {
+	hour: string;
+	title: string;
+	icon: string;
+}
+
+interface Props {
+	items: Item[];
+}
+
+const { items } = Astro.props;
+---
+
+<div class='flex flex-col gap-2'>
+	{
+		items.map((item, index) => (
+			<div class='grid grid-cols-[1fr_auto_1fr] items-start'>
+				{index % 2 === 0 ? (
+					<>
+						<div class='flex justify-end pr-8'>
+							<TimelineItem {...item} />
+						</div>
+
+						<TimelineLine isLast={index === items.length - 1} />
+
+						<div />
+					</>
+				) : (
+					<>
+						<div />
+
+						<TimelineLine isLast={index === items.length - 1} />
+
+						<div class='flex justify-start pl-8'>
+							<TimelineItem {...item} />
+						</div>
+					</>
+				)}
+			</div>
+		))
+	}
+</div>
