@@ -8,16 +8,17 @@ import DescriptionDateYear from "./descriptionDate/descriptionDateYear.astro";
 	class='flex flex-col items-center justify-center w-full max-w-80.75 mx-auto'>
 	<div class='grid grid-cols-[1fr_auto_1fr] items-center w-full'>
 		<div class='flex justify-end'>
-			<DescriptionDateSideLabel align='left'
-				>Septiembre</DescriptionDateSideLabel
-			>
+			<DescriptionDateSideLabel align='left'>
+				<span class='hidden md:inline'>Septiembre</span>
+				<span class='md:hidden'>Sept.</span>
+			</DescriptionDateSideLabel>
 		</div>
 		<DescriptionDateDay>19</DescriptionDateDay>
 		<div class='flex justify-start'>
-			<DescriptionDateSideLabel align='right'
-				>04:00 <span class='text-[12px] font-cormorant'>PM</span
-				></DescriptionDateSideLabel
-			>
+			<DescriptionDateSideLabel align='right'>
+				<span class='hidden md:inline'>04:00 <span class='text-[12px] font-cormorant'>PM</span></span>
+				<span class='md:hidden'>04PM</span>
+			</DescriptionDateSideLabel>
 		</div>
 	</div>
 	<div class='flex justify-center -mt-5.25'>

@@ -11,7 +11,7 @@ interface ImageProps {
 const { cardImages, cardTitle } = Astro.props as ImageProps;
 ---
 
-<div class="w-70 h-90  md:w-56 md:h-70 lg:w-70 lg:h-90 xl:w-75 xl:h-[385.71px] rounded-t-full ">
+<div class="w-full max-w-70 h-90 md:max-w-56 md:h-70 lg:max-w-70 lg:h-90 xl:max-w-75 xl:h-[385.71px] rounded-t-full ">
 	{cardImages	 &&(
 		<picture>
 		<source
