@@ -1,3 +1,6 @@
+---
+const scriptURL = import.meta.env.PUBLIC_GOOGLE_APP_URL;
+---
 
 <form id='rsvp-form' class='flex flex-col gap-6'>
 	<div class='flex flex-col'>
@@ -24,6 +27,7 @@
 
 	<div class='flex flex-col mb-2'>
 		<label class='mb-2'>Confirmación de asistencia</label>
+
 		<div class='flex flex-col gap-2'>
 			<label class='flex items-center gap-2 cursor-pointer'>
 				<input
@@ -35,6 +39,7 @@
 				/>
 				<span>Sí asistiré</span>
 			</label>
+
 			<label class='flex items-center gap-2 cursor-pointer'>
 				<input
 					type='radio'
@@ -49,80 +54,82 @@
 	</div>
 
 	<button
+		id='submit-button'
 		type='submit'
-		class='button bg-purple px-8 h-12 rounded-lg border-2 border-purple text-white inline-flex items-center justify-center cursor-pointer font-lato text-[18px] mt-2 disabled:opacity-70 transition-opacity'
-		id='submit-button'>
+		class='button bg-purple px-8 h-12 rounded-lg border-2 border-purple text-white inline-flex items-center justify-center cursor-pointer font-lato text-[18px] mt-2 disabled:opacity-70 transition-opacity'>
 		Enviar confirmación
 	</button>
+
 	<p id='form-message' class='hidden text-center mt-2 font-lato text-[16px]'>
 	</p>
 </form>
 
-<script>
-	const form = document.getElementById("rsvp-form") as HTMLFormElement;
-	const submitButton = document.getElementById(
-		"submit-button",
-	) as HTMLButtonElement;
-	const formMessage = document.getElementById(
-		"form-message",
-	) as HTMLParagraphElement;
+<script define:vars={{ scriptURL }}>
+	const form = document.getElementById("rsvp-form");
+	const submitButton = document.getElementById("submit-button");
+	const formMessage = document.getElementById("form-message");
 
-	const scriptURL = import.meta.env.PUBLIC_GOOGLE_APP_URL;
-
-	if (form) {
-		form.addEventListener("submit", (e) => {
+	if (
+		!(form instanceof HTMLFormElement) ||
+		!(submitButton instanceof HTMLButtonElement) ||
+		!(formMessage instanceof HTMLParagraphElement)
+	) {
+		console.error("No se encontraron los elementos del formulario.");
+	} else {
+		form.addEventListener("submit", async (e) => {
 			e.preventDefault();
 
 			if (!scriptURL) {
-				alert(
-					"Por favor, asegúrate de configurar la variable de entorno PUBLIC_GOOGLE_APP_URL.",
-				);
+				alert("No se encontró la variable PUBLIC_GOOGLE_APP_URL.");
 				return;
 			}
 
 			submitButton.disabled = true;
-			submitButton.innerText = "Enviando...";
+			submitButton.textContent = "Enviando...";
 
-			// Convertir FormData a URLSearchParams para asegurar máxima compatibilidad de red
-			const formData = new FormData(form);
-			const data = new URLSearchParams();
-			for (const pair of formData) {
-				data.append(pair[0], pair[1] as string);
-			}
-			data.append("fecha", new Date().toLocaleDateString("es-PE"));
+			try {
+				const formData = new FormData(form);
+				const data = new URLSearchParams();
 
-			console.log("Enviando datos a:", scriptURL);
-
-			fetch(scriptURL, { 
-				method: "POST", 
-				body: data,
-				headers: {
-					"Content-Type": "application/x-www-form-urlencoded"
+				for (const [key, value] of formData.entries()) {
+					data.append(key, String(value));
 				}
-			})
-				.then((response) => {
-					console.log("Respuesta recibida:", response);
-					if (!response.ok) {
-						throw new Error("Respuesta de red no fue ok");
-					}
-					// Al ser un redirect de Google Apps script, response.ok debería ser true.
-					formMessage.innerText = "¡Gracias por enviar tu respuesta!";
-					formMessage.classList.remove("hidden", "text-red-500");
-					formMessage.classList.add("text-green-600");
-					form.reset();
-				})
-				.catch((error) => {
-					console.error("Error al hacer fetch!", error);
-					// Fallback: A veces CORS bloquea la lectura de la respuesta, 
-					// pero el script de Google SI se ejecutó.
-					formMessage.innerText = "Confirmación enviada (o hubo problema de red CORS). Verifica tu consola.";
-					formMessage.classList.remove("hidden", "text-green-600");
-					formMessage.classList.add("text-blue-500");
-				})
-				.finally(() => {
-					submitButton.disabled = false;
-					submitButton.innerText = "Enviar confirmación";
+
+				data.append("fecha", new Date().toLocaleDateString("es-PE"));
+
+				const response = await fetch(scriptURL, {
+					method: "POST",
+					body: data,
+					headers: {
+						"Content-Type": "application/x-www-form-urlencoded",
+					},
+					mode: "cors",
 				});
+
+				if (!response.ok) {
+					throw new Error(`HTTP ${response.status}`);
+				}
+
+				form.reset();
+
+				formMessage.textContent = "¡Gracias por confirmar tu asistencia!";
+				formMessage.classList.remove("hidden", "text-red-500", "text-blue-500");
+				formMessage.classList.add("text-green-600");
+			} catch (error) {
+				console.error(error);
+
+				formMessage.textContent =
+					"No fue posible enviar la confirmación. Inténtalo nuevamente.";
+				formMessage.classList.remove(
+					"hidden",
+					"text-green-600",
+					"text-blue-500",
+				);
+				formMessage.classList.add("text-red-500");
+			} finally {
+				submitButton.disabled = false;
+				submitButton.textContent = "Enviar confirmación";
+			}
 		});
 	}
 </script>
