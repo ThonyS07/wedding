@@ -1,36 +1,48 @@
 ---
 import Timeline from "./timeline/timeline.astro";
 
-import CeremonyIcon from "../../../assets/icons/ceremony.svg";
-import CocktailIcon from "../../../assets/icons/cocktail.svg";
+import CeremonyIcon from "../../../assets/icons/church.svg";
+import RecepcionIcon from "../../../assets/icons/recepcion.svg";
+import LlegadaIcon from "../../../assets/icons/llegada.png";
+import BrindisIcon from "../../../assets/icons/brindis.svg";
+import PrimerBaileIcon from "../../../assets/icons/firstDance.png";
 import DinnerIcon from "../../../assets/icons/dinner.svg";
-import DanceIcon from "../../../assets/icons/dance.svg";
 import PartyIcon from "../../../assets/icons/party.svg";
 
 const items = [
 	{
-		hour: "04:00 P.M.",
+		hour: "02:00 P.M.",
 		title: "Ceremonia",
 		icon: CeremonyIcon.src,
 	},
 	{
-		hour: "05:00 P.M.",
-		title: "Cóctel",
-		icon: CocktailIcon.src,
+		hour: "03:30 P.M.",
+		title: "Recepción",
+		icon: RecepcionIcon.src,
 	},
 	{
-		hour: "06:30 P.M.",
+		hour: "04:30 P.M.",
+		title: "Llgada de los novios",
+		icon: LlegadaIcon.src,
+	},
+	{
+		hour: "04:45 P.M.",
+		title: "Brindis",
+		icon: BrindisIcon.src,
+	},
+	{
+		hour: "05:00 P.M.",
+		title: "Primer baile",
+		icon: PrimerBaileIcon.src,
+	},
+	{
+		hour: "05:30 P.M.",
 		title: "Cena",
 		icon: DinnerIcon.src,
 	},
 	{
-		hour: "08:00 P.M.",
-		title: "Primer baile",
-		icon: DanceIcon.src,
-	},
-	{
-		hour: "09:00 P.M.",
-		title: "¡A celebrar!",
+		hour: "06:30 P.M.",
+		title: "Fiesta",
 		icon: PartyIcon.src,
 	},
 ];

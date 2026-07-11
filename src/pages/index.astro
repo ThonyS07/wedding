@@ -4,7 +4,8 @@ import Header from "../components/sections/header.astro";
 import Body from "../components/sections/body.astro";
 import Footer from "../components/sections/footer.astro";
 import DressCodeModal from "../components/body/dressCodeModal/dressCodeModal.astro";
-import MapModal from "../components/body/mapModal/mapModal.astro";
+import CeremoniaMapModal from "../components/body/mapModal/ceremoniaMapModal.astro";
+import RecepcionMapModal from "../components/body/mapModal/recepcionMapModal.astro";
 import ItineraryModal from "../components/body/itineraryModal/itineraryModal.astro";
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
@@ -16,6 +17,7 @@ import ItineraryModal from "../components/body/itineraryModal/itineraryModal.ast
 	<Body />
 	<Footer />
 	<DressCodeModal />
-	<MapModal lat='-12.241031' lng='-76.880041' zoom='16' />
+	<CeremoniaMapModal lat='-12.388262' lng='-76.781597' zoom='16' />
+	<RecepcionMapModal lat='-12.241031' lng='-76.880041' zoom='16' />
 	<ItineraryModal />
 </Layout>

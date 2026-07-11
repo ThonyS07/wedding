@@ -1,9 +1,0 @@
----
-import Modal from "../modal/modal.astro";
-import MapContent from "./mapContent.astro";
-const {lat, lng, zoom} = Astro.props;
----
-
-<Modal id='mapModal' title='Ubicación'>
-	<MapContent lat={lat} lng={lng} zoom={zoom} />
-</Modal>

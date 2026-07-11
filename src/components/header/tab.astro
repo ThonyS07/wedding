@@ -1,9 +1,12 @@
 ---
 const { href } = Astro.props as {
-    href: string;
-}
+	href: string;
+};
 ---
 
-<p class='font-playfair text-[#363636] md:text-[18px] lg:text-[22px] uppercase'>
-    <a href={href}><slot /></a>
+<p
+	class='w-40 text-center font-playfair text-[#363636] md:text-[18px] lg:text-[22px] uppercase'>
+	<a href={href} class='block'>
+		<slot />
+	</a>
 </p>

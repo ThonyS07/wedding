@@ -6,16 +6,54 @@ import HamburgerIcon from "./hamburgerIcon.astro";
 
 <section
 	class='fixed top-0 left-0 z-1000 w-full h-16 md:px-24 lg:px-20 xl:px-30 md:h-18 lg:h-20 xl:h-24 bg-[#fbf5f7]/80'>
-	<div class='hidden md:flex items-center justify-evenly h-full'>
+	<div class='hidden md:flex items-center justify-center gap-8 h-full'>
 		<Tab href='#nosotros'>Nosotros</Tab>
 		<Tab href='#evento'>Evento</Tab>
-		<Logo type="desktop" />
+		<Logo type='desktop' />
 		<Tab href='#obsequios'>Obsequios</Tab>
 		<Tab href='#asistencia'>Asistencia</Tab>
 	</div>
 
 	<div class='md:hidden flex items-center justify-between px-4 h-full'>
-		<Logo type="mobile" />
-		<HamburgerIcon />
+		<Logo type='mobile' />
+		<div id='hamburger-btn' class='cursor-pointer'>
+			<HamburgerIcon />
+		</div>
 	</div>
 </section>
+
+<nav
+	id='mobile-menu'
+	class='md:hidden fixed top-16 left-0 z-1000 w-full bg-[#fbf5f7]/80 max-h-0 opacity-0 overflow-hidden transition-[max-height,opacity] duration-300 ease-in-out'>
+	<div class='flex flex-col items-center py-6 gap-6'>
+		<Tab href='#nosotros'>Nosotros</Tab>
+		<Tab href='#evento'>Evento</Tab>
+		<Tab href='#obsequios'>Obsequios</Tab>
+		<Tab href='#asistencia'>Asistencia</Tab>
+	</div>
+</nav>
+
+<script>
+	const hamburger = document.getElementById("hamburger-btn");
+	const menu = document.getElementById("mobile-menu");
+
+	if (hamburger && menu) {
+		hamburger.addEventListener("click", () => {
+			const isOpen = menu.classList.contains("max-h-[300px]");
+			if (isOpen) {
+				menu.classList.remove("max-h-[300px]", "opacity-100");
+				menu.classList.add("max-h-0", "opacity-0");
+			} else {
+				menu.classList.remove("max-h-0", "opacity-0");
+				menu.classList.add("max-h-[300px]", "opacity-100");
+			}
+		});
+
+		menu.querySelectorAll("a").forEach((link) => {
+			link.addEventListener("click", () => {
+				menu.classList.remove("max-h-[300px]", "opacity-100");
+				menu.classList.add("max-h-0", "opacity-0");
+			});
+		});
+	}
+</script>
