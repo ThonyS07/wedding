@@ -1,0 +1,22 @@
+---
+import AdmittedColors from "./admittedColors.astro";
+import ForbiddenColors from "./forbiddenColors.astro";
+import ModalSubtitle from "../../modalSubtitle.astro";
+import ModalTitle from "../../modalTitle.astro";
+import DescriptionAndDetails from "./descriptionAndDetails.astro";
+import OufitsInspiration from "./outfitsInspiration.astro";
+---
+
+<div class='overflow-y-auto flex flex-col gap-4 p-4 sm:px-8 sm:pb-8'>
+	<ModalTitle title='Dress Code' />
+
+	<ModalSubtitle title='Elegante' />
+
+	<DescriptionAndDetails />
+
+	<AdmittedColors />
+
+	<ForbiddenColors />
+
+	<OufitsInspiration />
+</div>

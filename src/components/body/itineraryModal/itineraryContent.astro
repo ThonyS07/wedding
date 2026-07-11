@@ -1,0 +1,41 @@
+---
+import Timeline from "./timeline/timeline.astro";
+
+import CeremonyIcon from "../../../assets/icons/ceremony.svg";
+import CocktailIcon from "../../../assets/icons/cocktail.svg";
+import DinnerIcon from "../../../assets/icons/dinner.svg";
+import DanceIcon from "../../../assets/icons/dance.svg";
+import PartyIcon from "../../../assets/icons/party.svg";
+
+const items = [
+	{
+		hour: "04:00 P.M.",
+		title: "Ceremonia",
+		icon: CeremonyIcon.src,
+	},
+	{
+		hour: "05:00 P.M.",
+		title: "Cóctel",
+		icon: CocktailIcon.src,
+	},
+	{
+		hour: "06:30 P.M.",
+		title: "Cena",
+		icon: DinnerIcon.src,
+	},
+	{
+		hour: "08:00 P.M.",
+		title: "Primer baile",
+		icon: DanceIcon.src,
+	},
+	{
+		hour: "09:00 P.M.",
+		title: "¡A celebrar!",
+		icon: PartyIcon.src,
+	},
+];
+---
+
+<div class='flex flex-col gap-10 py-6'>
+	<Timeline items={items} />
+</div>

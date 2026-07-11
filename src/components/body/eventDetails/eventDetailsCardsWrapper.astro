@@ -57,19 +57,21 @@ const itinerarioImages = {
 
 <script>
 	document.addEventListener("click", (e) => {
-		const target = e.target as HTMLElement;
+		const target = e.target;
 
-		const link = target.closest('a[href^="#"]') as HTMLAnchorElement | null;
+		if (!(target instanceof Element)) return;
 
-		if (!link) return;
+		const link = target.closest("a[data-modal]");
+
+		if (!(link instanceof HTMLAnchorElement)) return;
 
 		const href = link.getAttribute("href");
 
 		if (!href) return;
 
-		const dialog = document.querySelector<HTMLDialogElement>(href);
+		const dialog = document.querySelector(href);
 
-		if (!dialog) return;
+		if (!(dialog instanceof HTMLDialogElement)) return;
 
 		e.preventDefault();
 		dialog.showModal();

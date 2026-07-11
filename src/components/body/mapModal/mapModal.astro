@@ -1,66 +1,9 @@
 ---
-import { Button } from "../../button";
-
-const { title = "Ubicación", lat, lng, zoom = 16 } = Astro.props;
-
-const googleMapsUrl = `https://www.google.com/maps?q=${lat},${lng}`;
-const embedUrl = `https://www.google.com/maps?q=${lat},${lng}&z=${zoom}&output=embed`;
+import Modal from "../modal/modal.astro";
+import MapContent from "./mapContent.astro";
+const {lat, lng, zoom} = Astro.props;
 ---
 
-<dialog
-	id='mapModal'
-	class='lg:backdrop:bg-black/60 rounded-3xl w-full lg:w-[700px] lg:h-[610px] h-full lg:max-h-[90vh] m-auto fixed inset-0 overflow-hidden bg-[#FFFFFF]'>
-	<div class='bg-white'>
-		<div class='flex items-center justify-between p-4 border-b'>
-			<h2 class='font-cormorant text-xl'>{title}</h2>
-
-			<button class='close text-2xl'>✕</button>
-		</div>
-
-		<iframe
-			src={embedUrl}
-			width='100%'
-			height='420'
-			style='border:0'
-			loading='lazy'
-			allowfullscreen></iframe>
-
-		<div class='flex justify-center gap-3 p-4'>
-			<button
-				class='close-modal-btn px-6 py-2 bg-white font-cormorant text-btnXL text-purple rounded-full transition-colors cursor-pointer border'>
-				Cerrar
-			</button>
-
-			<a
-				href={googleMapsUrl}
-				target='_blank'
-				rel='noopener noreferrer'
-				class='px-4 py-2 rounded-lg font-cormorant bg-purple text-white'>
-				Abrir en Google Maps
-			</a>
-		</div>
-	</div>
-</dialog>
-
-<script>
-	const dialog = document.querySelector<HTMLDialogElement>("#mapModal");
-
-	if (dialog) {
-		dialog.querySelectorAll(".close").forEach((button) => {
-			button.addEventListener("click", () => dialog.close());
-		});
-
-		dialog.addEventListener("click", (e: MouseEvent) => {
-			const rect = dialog.getBoundingClientRect();
-
-			if (
-				e.clientX < rect.left ||
-				e.clientX > rect.right ||
-				e.clientY < rect.top ||
-				e.clientY > rect.bottom
-			) {
-				dialog.close();
-			}
-		});
-	}
-</script>
+<Modal id='mapModal' title='Ubicación'>
+	<MapContent lat={lat} lng={lng} zoom={zoom} />
+</Modal>
