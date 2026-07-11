@@ -1,6 +1,8 @@
 ---
 import ModalHeader from "./modalHeader.astro";
 import ModalCloseButton from "./modalCloseButton.astro";
+import ModalTitle from "../../modalTitle.astro";
+import ModalSubtitle from "../../modalSubtitle.astro";
 
 interface Props {
 	id: string;
@@ -32,16 +34,9 @@ const { id, title, subtitle } = Astro.props;
 		</div>
 		<div class='overflow-y-auto flex-1 flex flex-col gap-4 p-4 sm:px-8 sm:pb-8'>
 			<div class='text-center'>
-				<h2
-					class='font-ephesis text-detailtitlemobile lg:text-detailtitledesktop text-[#555555]'>
-					{title}
-				</h2>
+				<ModalTitle title={title} />
 
-				{
-					subtitle && (
-						<p class='font-cormorant text-lg mt-2 text-gray-500'>{subtitle}</p>
-					)
-				}
+				{subtitle && <ModalSubtitle title={subtitle} />}
 			</div>
 
 			<div class='mt-8'>
