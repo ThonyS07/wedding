@@ -1,22 +1,30 @@
 ---
 import EventDetailsCard from "./eventDetailsCard.astro";
-import UbicacionImageMobile from "../../../assets/ubicacionImageMobile.png";
-import UbicacionImageTablet from "../../../assets/ubicacionImageTablet.png";
-import UbicacionImageDesktop from "../../../assets/ubicacionImageDesktop.png";
-import UbicacionImageDesktopLarge from "../../../assets/ubicacionImageDesktopLarge.png";
-import DressCodeImageMobile from "../../../assets/dressCodeImageMobile.png";
-import DressCodeImageTablet from "../../../assets/dressCodeImageTablet.png";
-import DressCodeImageDesktop from "../../../assets/dressCodeImageDesktop.png";
-import DressCodeImageDesktopLarge from "../../../assets/dressCodeImageDesktopLarge.png";
-import ItinerarioImageMobile from "../../../assets/itinerarioImageMobile.png";
-import ItinerarioImageTablet from "../../../assets/itinerarioImageTablet.png";
-import ItinerarioImageDesktop from "../../../assets/itinerarioImageDesktop.png";
-import ItinerarioImageDesktopLarge from "../../../assets/itinerarioImageDesktopLarge.png";
-const ubicacionImages = {
-	mobile: UbicacionImageMobile.src,
-	tablet: UbicacionImageTablet.src,
-	desktop: UbicacionImageDesktop.src,
-	desktopLarge: UbicacionImageDesktopLarge.src,
+import CeremoniaImageMobile from "../../../assets/eventDetailsImages/ceremoniaMobile.png";
+import CeremoniaImageTablet from "../../../assets/eventDetailsImages/ceremoniaTablet.png";
+import CeremoniaImageDesktop from "../../../assets/eventDetailsImages/ceremoniaDesktop.png";
+import CeremoniaImageDesktopLarge from "../../../assets/eventDetailsImages/ceremoniaDesktopLarge.png";
+import RecepcionImageMobile from "../../../assets/eventDetailsImages/recepcionMobile.png";
+import RecepcionImageTablet from "../../../assets/eventDetailsImages/recepcionTablet.png";
+import RecepcionImageDesktop from "../../../assets/eventDetailsImages/recepcionDesktop.png";
+import RecepcionImageDesktopLarge from "../../../assets/eventDetailsImages/recepcionDesktopLarge.png";
+import DressCodeImageMobile from "../../../assets/eventDetailsImages/dressCodeMobile.png";
+import DressCodeImageTablet from "../../../assets/eventDetailsImages/dressCodeTablet.png";
+import DressCodeImageDesktop from "../../../assets/eventDetailsImages/dressCodeDesktop.png";	
+import DressCodeImageDesktopLarge from "../../../assets/eventDetailsImages/dressCodeDesktopLarge.png";
+import ItinerarioImageMobile from "../../../assets/eventDetailsImages/itineraryMobile.png";
+
+const ceremoniaImages = {
+	mobile: CeremoniaImageMobile.src,
+	tablet: CeremoniaImageTablet.src,
+	desktop: CeremoniaImageDesktop.src,
+	desktopLarge: CeremoniaImageDesktopLarge.src,
+};
+const recepcionImages = {
+	mobile: RecepcionImageMobile.src,
+	tablet: RecepcionImageTablet.src,
+	desktop: RecepcionImageDesktop.src,
+	desktopLarge: RecepcionImageDesktopLarge.src,
 };
 const dressCodeImages = {
 	mobile: DressCodeImageMobile.src,
@@ -26,24 +34,27 @@ const dressCodeImages = {
 };
 const itinerarioImages = {
 	mobile: ItinerarioImageMobile.src,
-	tablet: ItinerarioImageTablet.src,
-	desktop: ItinerarioImageDesktop.src,
-	desktopLarge: ItinerarioImageDesktopLarge.src,
 };
 ---
 
 <div class='flex flex-col md:flex-row justify-center gap-6'>
 	<EventDetailsCard
-		cardImages={ubicacionImages}
-		cardTitle='Ubicación'
-		cardDescription='Consulta la ubicación antes de asistir: Villa Chabelita, Pachacamac – Lima.'
+		cardImages={ceremoniaImages}
+		cardTitle='Ceremonia'
+		cardDescription='Parroquia La Resurrección del Señor, Los vientos 26, San Bartolo - Lima.'
 		cardAction='#mapModal'
 	/>
 
 	<EventDetailsCard
+		cardImages={recepcionImages}
+		cardTitle='Recepción'
+		cardDescription='Casa campo Villa Chabelita, Pachacamac - Lima.'
+		cardAction='#itineraryModal'
+	/>
+	<EventDetailsCard
 		cardImages={dressCodeImages}
 		cardTitle='Dress code'
-		cardDescription='Revisa el código de vestimenta para mantener la armonía visual del evento.'
+		cardDescription='Código de vestimenta para mantener la armonía visual del evento.'
 		cardAction='#dressCodeModal'
 	/>
 
@@ -52,6 +63,7 @@ const itinerarioImages = {
 		cardTitle='Itinerario'
 		cardDescription='Conoce el itinerario completo para acompañarnos en cada momento especial.'
 		cardAction='#itineraryModal'
+		className=' md:hidden'
 	/>
 </div>
 
