@@ -13,9 +13,10 @@ interface eventCardProps {
 	cardDescription: string;
 	cardAction: string;
 	className?: string;
+	buttonText?: string;
 }
 
-const { cardImages, cardTitle, cardDescription, cardAction, className } =
+const { cardImages, cardTitle, cardDescription, cardAction, className, buttonText} =
 	Astro.props as eventCardProps;
 ---
 
@@ -38,7 +39,7 @@ const { cardImages, cardTitle, cardDescription, cardAction, className } =
 		{cardDescription}
 	</p>
 	<Button
-		text='Ver detalles'
+		text={buttonText || 'Ver detalles'}
 		color='white'
 		textColor='purple'
 		action={cardAction}
