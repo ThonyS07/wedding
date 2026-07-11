@@ -47,6 +47,7 @@ jobs:
       - name: Build Astro
         env:
           PUBLIC_GOOGLE_APP_URL: ${{ vars.PUBLIC_GOOGLE_APP_URL}}
+          PUBLIC_IMPLEMENTATION_ID: ${{ vars.PUBLIC_IMPLEMENTATION_ID }}
         run: |
           pnpm astro build \
             --site "${{ steps.pages.outputs.origin }}" \
