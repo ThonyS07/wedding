@@ -56,6 +56,16 @@ jobs:
         uses: actions/upload-pages-artifact@v4
         with:
           path: ./dist
+      - name: Debug variables
+        env:
+          PUBLIC_GOOGLE_APP_URL: ${{ vars.PUBLIC_GOOGLE_APP_URL }}
+        run: |
+          if [ -z "$PUBLIC_GOOGLE_APP_URL" ]; then
+             echo "❌ La variable NO llegó"
+             exit 1
+          else
+              echo "✅ La variable llegó correctamente"
+          fi
 
   deploy:
     needs: build
