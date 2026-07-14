@@ -4,6 +4,6 @@ import MapContent from "./mapContent.astro";
 const { lat, lng, zoom } = Astro.props;
 ---
 
-<Modal id='recepcionMapModal' title='Ubicación'>
+<Modal id='recepcionMapModal' title='Ubicación' subtitle="Villa Chabelita">
 	<MapContent lat={lat} lng={lng} />
 </Modal>
